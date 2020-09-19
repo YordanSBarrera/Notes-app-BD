@@ -4,16 +4,15 @@ const {
     createNewNote,
     renderNote,
     renderNoteForm,
-    renderEditForm,
+    renderNoteEdit,
     deleteNote
 } = require('../controllers/notes.controller');
 
 router.get('/123', renderNoteForm);
 router.post('/notas/new-nota', createNewNote);
 router.get('/todo', renderNote);
-router.get('/notas/edit/:id', renderEditForm);
-//**//
-router.post('/notas/edit/:id', renderEditForm);
+
+router.get('/notas/edit/:id',renderNoteEdit);
 
 router.delete('/notas/delete/:id', deleteNote);
 
