@@ -8,12 +8,16 @@ const {
     deleteNote
 } = require('../controllers/notes.controller');
 
+//show notes
 router.get('/123', renderNoteForm);
-router.post('/notas/new-nota', createNewNote);
+router.post('/notes/new-note', createNewNote);
 router.get('/todo', renderNote);
 
-router.get('/notas/edit/:id',renderNoteEdit);
+//Edit notes
+router.get('/notes/edit/:id',renderNoteEdit);
+router.put('notes/edit/:id',renderNoteEdit);
 
-router.delete('/notas/delete/:id', deleteNote);
+//delete notes
+router.delete('/notes/delete/:id', deleteNote);
 
 module.exports = router

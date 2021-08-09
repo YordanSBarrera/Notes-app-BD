@@ -9,7 +9,7 @@ const UserSchema = new Schema({
     timestamps:true
 });
 
-UserSchema.methods.EncriptarPassword = password =>{
+UserSchema.methods.EncriptarPassword = async password =>{
     const salt = await bcryptjs.genSalt(10);
     return await bcryptjs.hash(password,salt);
 };

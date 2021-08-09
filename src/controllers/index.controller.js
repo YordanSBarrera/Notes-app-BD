@@ -9,7 +9,7 @@ indexCtrl.rederAbout = (req,res)=>{
 }
 
 indexCtrl.prueba = (req,res)=>{
-    res.render('notas/new-nota')
+    res.render('notes/new-note')
 }
 
 module.exports = indexCtrl;

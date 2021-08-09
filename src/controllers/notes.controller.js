@@ -8,11 +8,11 @@ notesCtrl.renderNoteEdit = async (req, res) => {
     console.log('entro en metodos ->' + req.params.id);
     const note = await Note.findById(req.params.id).lean();
     console.log(note);
-    res.render('notas/edit-nota', { note });
+    res.render('notes/edit-note', { note });
 };
 
 notesCtrl.renderNoteForm = (req, res) => {
-    res.render('notas/new-nota');
+    res.render('notes/new-note');
 };
 
 notesCtrl.createNewNote = async (req, res) => {
@@ -21,21 +21,21 @@ notesCtrl.createNewNote = async (req, res) => {
         title: req.body.title,
         description: req.body.description
     });
-    console.log(newNote);
+    //console.log(newNote);
     await newNote.save();
     res.redirect('/todo');
 };
 
 notesCtrl.renderNote = async (req, res) => {
-    const notas = await Note.find().lean();
+    const notes = await Note.find().lean();
 
-    res.render('notas/all-notas', { notas });
+    res.render('notes/all-notes', { notes });
     //res.send('render nota');
 };
 
 // notesCtrl.renderEditForm = (req, res) => {
 //    // const nota=Note.findById(req.params.id);
-//     res.render('/notas/edit-nota');
+//     res.render('/notes/edit-nota');
 // };
 
 notesCtrl.deleteNote = async (req, res) => {
