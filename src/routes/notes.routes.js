@@ -5,6 +5,7 @@ const {
     renderNote,
     renderNoteForm,
     renderNoteEdit,
+    updateNote,
     deleteNote
 } = require('../controllers/notes.controller');
 
@@ -15,7 +16,7 @@ router.get('/todo', renderNote);
 
 //Edit notes
 router.get('/notes/edit/:id',renderNoteEdit);
-router.put('notes/edit/:id',renderNoteEdit);
+router.put('notes/edit/:id',updateNote);
 
 //delete notes
 router.delete('/notes/delete/:id', deleteNote);
