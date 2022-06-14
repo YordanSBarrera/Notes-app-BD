@@ -1,7 +1,7 @@
 const indexCtrl = {};
 
 indexCtrl.rederIndex = (req, res) => {
-  console.log("vamos par Index");
+  console.log("vamos para el Index");
   res.render("index");
 };
 
@@ -11,6 +11,7 @@ indexCtrl.rederAbout = (req, res) => {
 };
 
 indexCtrl.prueba = (req, res) => {
+  console.log("nueva nota") 
   res.render("notes/new-note");
 };
 

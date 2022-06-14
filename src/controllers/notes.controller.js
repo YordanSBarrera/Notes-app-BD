@@ -26,21 +26,25 @@ notesCtrl.renderNote = async (req, res) => {
   //res.send('render nota');
 };
 
-// notesCtrl.renderEditForm = (req, res) => {
-//    // const nota=Note.findById(req.params.id);
-//     res.render('/notes/edit-nota');
-// };
-
 notesCtrl.renderNoteEdit = async (req, res) => {
-  console.log("entro en metodos ->" + req.params.id);
+  console.log("entro en metodosRNE ->" + req.params.id);
   const note = await Note.findById(req.params.id).lean();
   console.log(note);
   res.render("notes/edit-note", { note });
 };
-notesCtrl.updateNote = (req, res) => {
-  console.log(req.body);
-  res.send("Nota Cambiada");
+
+notesCtrl.updateNote = (req, res) => { 
+  res.send("UPDATE");
+  console.log( "   er");
 };
+/*
+notesCtrl.updateNote = async(req, res) => {
+  console.log("**********NE************")
+  console.log("DATO EDIT->"+req.body);
+  const {title,description}=req.body;
+  await Note.findByIdAndUpdate(req.params.id,{title,description});
+  res.redirect("/todo");
+};*/
 
 notesCtrl.deleteNote = async (req, res) => {
   console.log("ID ->" + req.params.id);
