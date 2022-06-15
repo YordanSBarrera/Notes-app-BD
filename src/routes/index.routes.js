@@ -7,6 +7,6 @@ router.get('/', rederIndex);
 
 router.get('/About', rederAbout);
 
-router.get('/notas',prueba);
+router.get('/notes',prueba);
 
 module.exports = router;

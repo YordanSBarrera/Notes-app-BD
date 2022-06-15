@@ -1,15 +1,18 @@
-const indexCtrl ={};
+const indexCtrl = {};
 
-indexCtrl.rederIndex = (req,res)=>{
-    res.render('index')
-}
+indexCtrl.rederIndex = (req, res) => {
+  console.log("vamos para el Index");
+  res.render("index");
+};
 
-indexCtrl.rederAbout = (req,res)=>{
-    res.render('about')
-}
+indexCtrl.rederAbout = (req, res) => {
+  console.log("vamos para el about");
+  res.render("about");
+};
 
-indexCtrl.prueba = (req,res)=>{
-    res.render('notas/new-nota')
-}
+indexCtrl.prueba = (req, res) => {
+  console.log("nueva nota") 
+  res.render("notes/new-note");
+};
 
 module.exports = indexCtrl;

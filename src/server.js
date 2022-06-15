@@ -3,6 +3,7 @@ const exphdl = require('express-handlebars');
 const path = require('path');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
+const exphbs = require('express-handlebars');
 
 // const Handlebars = require('handlebars')
 // const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
@@ -13,7 +14,7 @@ const app = express();
 //configuraciones
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphdl({
+app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
@@ -24,7 +25,7 @@ app.set('view engine', '.hbs');
 //middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
-app.use(methodOverride('_metodo'));
+app.use(methodOverride('_method'));
 
 //global variables
 
