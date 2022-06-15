@@ -16,12 +16,11 @@ notesCtrl.createNewNote = async (req, res) => {
   });
   //console.log(newNote);
   await newNote.save();
-  res.redirect("/todo");
+  res.redirect("/notes/all");
 };
 
 notesCtrl.renderNote = async (req, res) => {
   const notes = await Note.find().lean();
-
   res.render("notes/all-notes", { notes });
   //res.send('render nota');
 };
@@ -33,24 +32,24 @@ notesCtrl.renderNoteEdit = async (req, res) => {
   res.render("notes/edit-note", { note });
 };
 
-notesCtrl.updateNote = (req, res) => { 
-  res.send("UPDATE");
-  console.log( "   er");
-};
-/*
+// notesCtrl.updateNote = (req, res) => { 
+//   console.log(req.body)
+//   res.send("UPDATE");
+//   console.log( "   er");
+// };
+
 notesCtrl.updateNote = async(req, res) => {
   console.log("**********NE************")
-  console.log("DATO EDIT->"+req.body);
+  console.log(req.body);
   const {title,description}=req.body;
   await Note.findByIdAndUpdate(req.params.id,{title,description});
-  res.redirect("/todo");
-};*/
+  res.redirect("/notes/all");
+};
 
 notesCtrl.deleteNote = async (req, res) => {
   console.log("ID ->" + req.params.id);
   await Note.findByIdAndDelete(req.params.id);
-  console.log("debe de haberse borrado");
-  res.redirect("/todo");
+  res.redirect("/notes/all");
 };
 
 module.exports = notesCtrl;

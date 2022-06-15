@@ -25,7 +25,7 @@ app.set('view engine', '.hbs');
 //middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
-app.use(methodOverride('_metodo'));
+app.use(methodOverride('_method'));
 
 //global variables
 

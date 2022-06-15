@@ -3,9 +3,9 @@
   <p>aca crearemos un formulario para editar las notas</p>
   <div class="card">
     <div class="card-body">
-      <form action="/notes/edit/{{note.id}}?_method=PUT" method="POST">
+      <form action="/notes/edit/{{note._id}}?_method=PUT" method="POST">
         <input type="hidden" name="_method" value="PUT" />
-
+          <p>id:{{note._id}}</p>
         <div class="form-group">
           <input
             type="text"
@@ -29,6 +29,7 @@
           <button class="btn btn-primary btn-block" type="submit">
             Guardar
           </button>
+          <a href="/notes/all" class="btn btn-primary btn-block">Candelar</a>
         </div>
       </form>
     </div>
