@@ -16,6 +16,7 @@ notesCtrl.createNewNote = async (req, res) => {
   });
   //console.log(newNote);
   await newNote.save();
+  req.flash("success_msg", "Note Added Successfully");
   res.redirect("/notes/all");
 };
 
@@ -32,23 +33,27 @@ notesCtrl.renderNoteEdit = async (req, res) => {
   res.render("notes/edit-note", { note });
 };
 
-// notesCtrl.updateNote = (req, res) => { 
+// notesCtrl.updateNote = (req, res) => {
 //   console.log(req.body)
 //   res.send("UPDATE");
 //   console.log( "   er");
 // };
 
-notesCtrl.updateNote = async(req, res) => {
-  console.log("**********NE************")
+notesCtrl.updateNote = async (req, res) => {
+  console.log("**********NE************");
   console.log(req.body);
-  const {title,description}=req.body;
-  await Note.findByIdAndUpdate(req.params.id,{title,description});
+  const { title, description } = req.body;
+  await Note.findByIdAndUpdate(req.params.id, { title, description });
+  req.flash("success_msg", "Note Update Successfully");
+
   res.redirect("/notes/all");
 };
 
 notesCtrl.deleteNote = async (req, res) => {
   console.log("ID ->" + req.params.id);
   await Note.findByIdAndDelete(req.params.id);
+  req.flash("success_msg", "Note Delete Successfully");
+
   res.redirect("/notes/all");
 };
 
