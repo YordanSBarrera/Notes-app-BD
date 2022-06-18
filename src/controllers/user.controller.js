@@ -1,4 +1,5 @@
 const userCtrl = {};
+const passport = require("passport");
 const User = require("../models/user");
 
 userCtrl.renderSignUpForm = (req, res) => {
@@ -26,7 +27,7 @@ userCtrl.signUp = async (req, res) => {
       newUser.password = await newUser.EncriptarPassword(password);
       await newUser.save();
       req.flash("success_msg", "You are registered");
-      console.log(newUser)
+      console.log(newUser);
       res.redirect("/users/signin");
     }
   }
@@ -34,9 +35,11 @@ userCtrl.signUp = async (req, res) => {
 userCtrl.renderSignInForm = (req, res) => {
   res.render("users/signin");
 };
-userCtrl.signIn = (req, res) => {
-  res.send("signin");
-};
+userCtrl.signIn = passport.authenticate("local", {
+  failureRedirect: "/users/signin",
+  successRedirect: "/notes/all",
+  failureFlash: true,
+});
 userCtrl.logout = (req, res) => {
   res.send("logout");
 };
