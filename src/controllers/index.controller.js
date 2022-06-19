@@ -11,8 +11,12 @@ indexCtrl.rederAbout = (req, res) => {
 };
 
 indexCtrl.prueba = (req, res) => {
-  console.log("nueva nota") 
+  console.log("nueva nota");
   res.render("notes/new-note");
 };
 
+indexCtrl.renderFeatures = (req, res) => {
+  console.log("let's go to features");
+  res.render("features");
+};
 module.exports = indexCtrl;

@@ -8,15 +8,16 @@ const {
   updateNote,
   deleteNote,
 } = require("../controllers/notes.controller");
+const { isUserIn } = require("../helpers/auth");
 
 //show notes
-router.get("/notes/new", renderNoteForm);
-router.post("/notes/new-note", createNewNote);
-router.get("/notes/all", renderNote);
+router.get("/notes/new", isUserIn, renderNoteForm);
+router.post("/notes/new-note", isUserIn, createNewNote);
+router.get("/notes/all", isUserIn, renderNote);
 
 //Edit notes
-router.get("/notes/edit/:id", renderNoteEdit);
-router.put("/notes/edit/:id", updateNote);
+router.get("/notes/edit/:id", isUserIn, renderNoteEdit);
+router.put("/notes/edit/:id", isUserIn, updateNote);
 
 //delete notes
 router.delete("/notes/delete/:id", deleteNote);
