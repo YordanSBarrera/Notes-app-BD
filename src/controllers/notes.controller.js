@@ -10,9 +10,11 @@ notesCtrl.renderNoteForm = (req, res) => {
 
 notesCtrl.createNewNote = async (req, res) => {
   console.log("form :", req.body);
+  console.log('user>>>',req.user);
   const newNote = new Note({
     title: req.body.title,
     description: req.body.description,
+    idUser:req.user._id
   });
   //console.log(newNote);
   await newNote.save();
@@ -21,7 +23,7 @@ notesCtrl.createNewNote = async (req, res) => {
 };
 
 notesCtrl.renderNote = async (req, res) => {
-  const notes = await Note.find().lean();
+  const notes = await Note.find({idUser:req.user._id}).lean();
   res.render("notes/all-notes", { notes });
   //res.send('render nota');
 };
