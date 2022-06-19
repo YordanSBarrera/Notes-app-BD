@@ -13,6 +13,7 @@ passport.use(
       //Match Email's User
       const user = await User.findOne({ email });
       if (!user) {
+        console.log("correo-->>>",user)
         return done(null, false, { message: "Not User Found" });
       } else {
         //Match Password's User
