@@ -5,7 +5,7 @@ const {
   rederIndex,
   rederAbout,
   prueba,
-  renderFeatures,
+  renderFeatures
 } = require("../controllers/index.controller");
 
 router.get("/", rederIndex);

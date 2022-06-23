@@ -6,7 +6,7 @@ const {
   renderNoteForm,
   renderNoteEdit,
   updateNote,
-  deleteNote,
+  deleteNote
 } = require("../controllers/notes.controller");
 const { isUserIn } = require("../helpers/auth");
 
